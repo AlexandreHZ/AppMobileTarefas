@@ -7,4 +7,22 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="brancoTexto">#FFFFFFFF</color>
+
+    <color name="azulPadrao">#0A57D7</color>
+    <color name="azulPressionado">#134DAD</color>
+    <color name="azulHover">#3076E9</color>
+
+    <color name="cinzaFracoPadrao">#ECECEC</color>
+    <color name="cinzaFracoParaTexto">#8D8D8D</color>
+    <color name="cinzaForteParaTexto">#373737</color>
+
+    <color name="verdeSucesso">#3BC475</color>
+
+    <color name="vermelhoPrioridadeAlta">#E74E4E</color>
+    <color name="amareloPrioridadeMedia">#FFD600</color>
+    <color name="azulPrioridadeBaixa">#4B9BE5</color>
+
+    <color name="vermelhoExcluir">#E74E4E</color>
 </resources>

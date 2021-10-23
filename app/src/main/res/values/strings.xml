@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">App Gerenciador de Tarefas</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="entrar">Entrar</string>
+    <string name="vamos_come_ar">Vamos começar</string>
+    <string name="label_inicial">Gerencia suas tarefas do
+            dia-a-dia de modo prático, simples e rápido!</string>
+    <string name="label_principal_inicial">To do List</string>
+    <string name="labelLogin">Login</string>
 </resources>

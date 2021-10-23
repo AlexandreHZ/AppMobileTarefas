@@ -1,18 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="350dp"
+        app:srcCompat="@drawable/imagem_inicial" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/backAzul"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:layout_below="@id/imageView"
+        android:background="@color/azulPadrao" />
+
+    <TextView
+        android:id="@+id/tituloInicial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="@string/label_principal_inicial"
+        android:textColor="@color/brancoTexto"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/textoInicial"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tituloInicial"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="@string/label_inicial"
+        android:textAlignment="center"
+        android:textColor="@color/brancoTexto"
+        android:textSize="15sp" />
+
+    <!--controlar o retorno de login e senha informados
+        pelo usuario pelo banco e verificar se tem cadastrado-->
+    <!--<TextView
+        android:id="@+id/textview_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_horizontal"
+        android:text="here will be our username"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textview_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_username"
+        android:layout_alignParentStart="true"
+        android:gravity="center_horizontal"
+        android:text="here will be our password"
+        android:textSize="30sp" />-->
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnEntrar"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textoInicial"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/btn_custom_branco"
+        android:text="@string/entrar"
+        android:textAllCaps="false"
+        android:textColor="#0A57D7"
+        android:textSize="18sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCadastrar"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnEntrar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_custom_azul"
+        android:text="@string/cadastrar"
+        android:textAllCaps="false"
+        android:textColor="@color/brancoTexto"
+        android:textSize="18sp" />
+
+</RelativeLayout>
