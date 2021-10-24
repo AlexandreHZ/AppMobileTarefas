@@ -62,7 +62,11 @@ public class AddTarefaActivity extends AppCompatActivity {
                 String prioridade = editPrioridade.getText().toString();
                 String data = labelData.getText().toString();
                 String descricao = editDescricao.getText().toString();
+                Integer idUsuario = 1;
 
+                DatabaseHelper db = new DatabaseHelper(AddTarefaActivity.this);
+                db.addTarefa(titulo, prioridade, data, descricao, idUsuario);
+                btnVoltarTarefa.callOnClick();
             }
         });
 
