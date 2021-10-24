@@ -1,9 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddTarefaActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/btnVoltarTarefa"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/white"
+        android:src="@drawable/ic_round_arrow_back_ios_40" />
+
+    <TextView
+        android:id="@+id/labelAddTarefa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnVoltarTarefa"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:text="Criar nova tarefa"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTitulo"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/labelAddTarefa"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:hint="Adicionar título"
+        android:padding="20dp" />
+
+    <TextView
+        android:id="@+id/labelAddPrioridade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTitulo"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:text="Prioridade"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editPrioridade"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/labelAddPrioridade"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:hint="Adicionar prioridade"
+        android:padding="20dp" />
+
+    <TextView
+        android:id="@+id/labelAddData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editPrioridade"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:text="Data"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAddData"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/labelAddData"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_escolher_data"
+        android:drawableStart="@drawable/ic_round_calendar_today_30"
+        android:paddingStart="10dp"
+        android:text="Selecione a data"
+        android:textAllCaps="false"
+        android:textColor="@color/cinzaFracoParaTexto" />
+
+    <TextView
+        android:id="@+id/labelData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/labelAddData"
+        android:layout_marginStart="215dp"
+        android:layout_marginTop="24dp"
+        android:text="teste"
+        android:textColor="@color/cinzaFracoParaTexto"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/editDescricao"
+        android:layout_width="360dp"
+        android:layout_height="125dp"
+        android:layout_below="@id/btnAddData"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@color/cinzaFracoPadrao"
+        android:gravity="top|start"
+        android:hint="Descrição"
+        android:inputType="textMultiLine"
+        android:lines="8"
+        android:maxLines="10"
+        android:minLines="6"
+        android:padding="10dp"
+        android:scrollbars="vertical" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSalvar"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editDescricao"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/btn_custom_azul_padrao_salvar"
+        android:text="Salvar"
+        android:textAllCaps="false"
+        android:textColor="@color/brancoTexto"
+        android:textSize="18sp" />
+</RelativeLayout>

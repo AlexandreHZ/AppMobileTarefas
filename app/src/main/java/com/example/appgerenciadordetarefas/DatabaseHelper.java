@@ -23,6 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PRIORIDADE_TAREFA = "prioridade";
     private static final String COLUMN_DATA_TAREFA = "data";
     private static final String COLUMN_DESCRICAO_TAREFA = "descricao";
+    private static final String COLUMN_USUARIO = "id_usuario";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,7 +42,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_TITULO_TAREFA + " text,"
                 + COLUMN_PRIORIDADE_TAREFA + " text,"
                 + COLUMN_DATA_TAREFA + " text,"
-                + COLUMN_DESCRICAO_TAREFA + " text);";
+                + COLUMN_DESCRICAO_TAREFA + " text,"
+                + COLUMN_USUARIO + " integer);";
 
         db.execSQL(queryCriarTabelaUsuario);
         db.execSQL(queryCriarTabelaTarefas);

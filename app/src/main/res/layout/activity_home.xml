@@ -2,13 +2,48 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/upAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="top"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:textSize="30sp"
+            android:paddingStart="30dp"
+            android:textStyle="bold"
+            android:gravity="bottom"
+            app:layout_anchor="@id/upAppBar"
+            android:text="Tarefas"
+            />
+
+        <ImageButton
+            android:id="@+id/btnSair"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@color/white"
+
+            android:src="@drawable/ic_round_exit_to_app_30"
+            app:layout_anchor="@id/upAppBar"
+            app:layout_anchorGravity="center"
+            android:layout_marginTop="-30dp"
+            android:layout_marginStart="335dp"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
+        android:layout_below="@id/upAppBar"
+        android:layout_width="350dp"
         android:layout_height="match_parent"
-        android:paddingBottom="100dp"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:paddingTop="100dp"
         android:clipToPadding="false" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
@@ -34,5 +69,7 @@
         android:background="@color/azulPadrao"
         app:layout_anchor="@id/bottomAppBar"
         />
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
