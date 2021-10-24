@@ -35,7 +35,7 @@ public class dialogCadastrar extends AppCompatDialogFragment {
             @Override
             public void onClick(View view) {
                 /*
-                fazer tratativa para validar o login e ir para a próxima activity (das tarefas)
+                fazer tratativa para cadastrar no banco
                  */
                 dismiss();
             }

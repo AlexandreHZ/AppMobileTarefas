@@ -1,5 +1,6 @@
 package com.example.appgerenciadordetarefas;
 
+import android.content.Intent;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -35,8 +36,11 @@ public class dialogEntrar extends AppCompatDialogFragment {
             @Override
             public void onClick(View view) {
                 /*
-                fazer tratativa para cadastrar no banco
+                fazer tratativa para validar o login e ir para a próxima activity (das tarefas)
                  */
+                Intent intent = new Intent(getActivity(), ActivityHome.class);
+                startActivity(intent);
+
                 dismiss();
             }
         });

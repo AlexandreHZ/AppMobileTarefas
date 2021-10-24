@@ -14,11 +14,15 @@
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/drawable-v24/btn_pressed_azulPadraoSalvar.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/drawable-v24/btn_pressed_azul_padrao_salvar.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/drawable-v24/btn_pressed_branco.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/activity_add_tarefa.xml" value="0.12364130434782608" />
+        <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/activity_main.xml" value="0.2234375" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/data.xml" value="0.25" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/dialog_login.xml" value="0.22" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/dialog_registrar.xml" value="0.25" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/layout_dialog.xml" value="0.22" />
+        <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/menu/bottom_app_bar.xml" value="0.2234375" />
+        <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2234375" />
       </map>
     </option>
   </component>
