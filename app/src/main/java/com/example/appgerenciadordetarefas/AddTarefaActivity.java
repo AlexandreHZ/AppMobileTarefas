@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
 public class AddTarefaActivity extends AppCompatActivity {
 
@@ -36,15 +37,21 @@ public class AddTarefaActivity extends AppCompatActivity {
         btnVoltarTarefa = findViewById(R.id.btnVoltarTarefa);
         labelData = findViewById(R.id.labelData);
 
+        MaterialDatePicker.Builder builder = MaterialDatePicker.Builder.datePicker();
+        builder.setTitleText("Selecione a data");
+        final MaterialDatePicker datePicker = builder.build();
+
         btnAddData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MaterialDatePicker<Long> datePicker;
-                datePicker = MaterialDatePicker.Builder.datePicker()
-                        .setTitleText("Selecione a data")
-                        .build();
+                datePicker.show(getSupportFragmentManager(), "DATE_PICKER");
+            }
+        });
 
-                datePicker.show(getSupportFragmentManager(), "tag");
+        datePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
+            @Override
+            public void onPositiveButtonClick(Object selection) {
+                labelData.setText(datePicker.getHeaderText());
             }
         });
 

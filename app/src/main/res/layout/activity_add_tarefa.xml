@@ -93,7 +93,6 @@
         android:layout_below="@id/labelAddData"
         android:layout_marginStart="215dp"
         android:layout_marginTop="24dp"
-        android:text="teste"
         android:textColor="@color/cinzaFracoParaTexto"
         android:textSize="20sp" />
 
