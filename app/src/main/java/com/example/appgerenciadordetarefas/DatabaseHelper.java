@@ -34,6 +34,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_DESCRICAO_TAREFA = "descricao";
     private static final String COLUMN_USUARIO = "id_usuario";
 
+    SQLiteDatabase db = this.getWritableDatabase();
+
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
@@ -70,7 +72,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //Referentes à tarefas
 
     void addTarefa(String titulo, String prioridade, String data, String descricao, Integer idUsuario) {
-        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(COLUMN_TITULO_TAREFA, titulo);
@@ -87,6 +88,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    void editTarefa(String titulo, String prioridade, String data, String descricao, Integer idTarefa) {
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COLUMN_TITULO_TAREFA, titulo);
+        contentValues.put(COLUMN_PRIORIDADE_TAREFA, prioridade);
+        contentValues.put(COLUMN_DATA_TAREFA, data);
+        contentValues.put(COLUMN_DESCRICAO_TAREFA, descricao);
+
+        long result = db.update(TABLE_NAME_TAREFA, contentValues, COLUMN_ID_TAREFA + "= ?", new String[]{idTarefa.toString()} );
+
+        if (result == -1) {
+            toastHelper.showToast("F", "Ops, algo de errado aconteceu!");
+        } else {
+            toastHelper.showToast("S", "Tarefa atualizada com sucesso!");
+        }
+    }
+
     Cursor retornarTarefasByUsuario(String idUsuario) {
         String query = "select * from "+ TABLE_NAME_TAREFA+ " where id_usuario = "+ idUsuario;
 
@@ -99,10 +118,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void deletarTarefaById(String idTarefa) {
+    void deletarTarefaById(Integer idTarefa) {
 
-        SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLE_NAME_TAREFA, COLUMN_ID_TAREFA + "= ?", new String[]{idTarefa});
+        long result = db.delete(TABLE_NAME_TAREFA, COLUMN_ID_TAREFA + "= ?", new String[]{idTarefa.toString()});
 
         if (result == -1) {
             toastHelper.showToast("F", "Não foi possível excluir a tarefa!");
@@ -148,7 +166,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     void addUsuario (String usuario, String email, String senha) {
-        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(COLUMN_NOME_USUARIO, usuario);
