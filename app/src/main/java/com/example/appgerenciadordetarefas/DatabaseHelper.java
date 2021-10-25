@@ -5,11 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -130,6 +125,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //Referentes à usuários
+
     Cursor retornarLogin(String usuario, String senha) {
         String query =
                 "select "+
@@ -179,26 +175,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             toastHelper.showToast("S", "Cadastro realizado com sucesso!");
         }
     }
-
-    /*void showToast(String tipo, String mensagem) {
-        if (tipo.equals("S")) {
-            View view = LayoutInflater.from(context)
-                    .inflate(R.layout.toast_sucesso, null);
-            Toast toast = new Toast(context);
-            TextView msgSucesso = view.findViewById(R.id.msgSucesso);
-            msgSucesso.setText(mensagem);
-            toast.setGravity(Gravity.TOP, 0, 140);
-            toast.setView(view);
-            toast.show();
-        } else {
-            View view = LayoutInflater.from(context)
-                    .inflate(R.layout.toast_falha, null);
-            Toast toast = new Toast(context);
-            TextView msgFalha = view.findViewById(R.id.msgFalha);
-            msgFalha.setText(mensagem);
-            toast.setGravity(Gravity.TOP, 0, 140);
-            toast.setView(view);
-            toast.show();
-        }
-    }*/
 }

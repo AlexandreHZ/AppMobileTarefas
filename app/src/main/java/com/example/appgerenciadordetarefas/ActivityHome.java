@@ -12,19 +12,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 public class ActivityHome extends AppCompatActivity {
 
-    private BottomAppBar bottomAppBar;
     private RecyclerView recyclerView;
     private FloatingActionButton btnAddTarefa;
-
     private ImageButton btnSair;
-
     private String idUsuario;
 
     DatabaseHelper db;

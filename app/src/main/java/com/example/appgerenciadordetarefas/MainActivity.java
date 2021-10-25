@@ -2,14 +2,12 @@ package com.example.appgerenciadordetarefas;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 public class MainActivity extends AppCompatActivity implements dialogEntrar.ExampleDialogListener, dialogCadastrar.ExampleDialogListener {
-    private TextView textViewUsername;
-    private TextView textViewPassword;
+
     private AppCompatButton btnEntrar;
     private AppCompatButton btnCadastrar;
 
@@ -18,8 +16,6 @@ public class MainActivity extends AppCompatActivity implements dialogEntrar.Exam
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*textViewUsername = (TextView) findViewById(R.id.textview_username);
-        textViewPassword = (TextView) findViewById(R.id.textview_password);*/
         btnEntrar = (AppCompatButton) findViewById(R.id.btnEntrar);
         btnCadastrar = (AppCompatButton) findViewById(R.id.btnCadastrar);
 
@@ -35,7 +31,6 @@ public class MainActivity extends AppCompatActivity implements dialogEntrar.Exam
                 openDialogCadastro();
             }
         });
-
     }
 
     public void openDialogLogin() {
@@ -50,7 +45,5 @@ public class MainActivity extends AppCompatActivity implements dialogEntrar.Exam
 
     @Override
     public void applyTexts(String username, String password) {
-        /*textViewUsername.setText(username);
-        textViewPassword.setText(password);*/
     }
 }
