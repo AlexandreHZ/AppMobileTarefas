@@ -52,6 +52,8 @@ public class ActivityHome extends AppCompatActivity {
         guardarDadosArrayValores();
 
         customAdapter = new CustomAdapter(ActivityHome.this, idTarefa, tituloTarefa, prioridadeTarefa, dataTarefa);
+        customAdapter.setRecyclerView(recyclerView);
+
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(ActivityHome.this));
 

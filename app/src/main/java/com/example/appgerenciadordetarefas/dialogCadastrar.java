@@ -87,6 +87,7 @@ public class dialogCadastrar extends AppCompatDialogFragment {
 
     public void preencherUsuariosConsultaNoArray() {
         Cursor cursor = db.retornarByUsuario(this.nomeUsuario);
+        usuariosComMesmoNome.clear();
         while (cursor.moveToNext()) {
             usuariosComMesmoNome.add(cursor.getString(0));
         }
