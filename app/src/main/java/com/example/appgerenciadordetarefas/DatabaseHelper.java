@@ -2,6 +2,7 @@ package com.example.appgerenciadordetarefas;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.view.Gravity;
@@ -78,6 +79,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else {
             showToast("S", "Tarefa adicionada com sucesso!");
         }
+    }
+
+    Cursor retornarTarefasByUsuario(Integer idUsuario) {
+        String query = "select * from "+ TABLE_NAME_TAREFA+ " where id_usuario = "+ idUsuario;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if (db!= null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
     }
 
     void showToast(String tipo, String mensagem) {

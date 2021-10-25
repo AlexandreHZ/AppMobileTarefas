@@ -17,6 +17,7 @@
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/drawable-v24/btn_pressed_branco.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/drawable/btn_escolher_data.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/drawable/dialog_background.xml" value="0.19444444444444445" />
+        <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/drawable/registro_tarefa.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/activity_add_tarefa.xml" value="0.25" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/activity_main.xml" value="0.2234375" />
@@ -25,6 +26,7 @@
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/dialog_login.xml" value="0.22" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/dialog_registrar.xml" value="0.25" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/layout_dialog.xml" value="0.22" />
+        <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/tarefa_registro.xml" value="0.33" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/toast_falha.xml" value="0.33" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/layout/toast_sucesso.xml" value="0.33" />
         <entry key="..\:/Users/SrJan/AndroidStudioProjects/AppGerenciadordeTarefas/app/src/main/res/menu/bottom_app_bar.xml" value="0.2234375" />
