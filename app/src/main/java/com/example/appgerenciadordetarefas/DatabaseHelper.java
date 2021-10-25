@@ -118,9 +118,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void deletarTarefaById(Integer idTarefa) {
+    void deletarTarefaById(String idTarefa) {
 
-        long result = db.delete(TABLE_NAME_TAREFA, COLUMN_ID_TAREFA + "= ?", new String[]{idTarefa.toString()});
+        long result = db.delete(TABLE_NAME_TAREFA, COLUMN_ID_TAREFA + "= ?", new String[]{idTarefa});
 
         if (result == -1) {
             toastHelper.showToast("F", "Não foi possível excluir a tarefa!");
