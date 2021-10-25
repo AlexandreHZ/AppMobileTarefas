@@ -73,6 +73,8 @@ public class dialogEntrar extends AppCompatDialogFragment {
                         toastHelper.showToast("E", "Usuário não encontrado!");
                     } else {
                         Intent intent = new Intent(getActivity(), ActivityHome.class);
+                        intent.putExtra("idUsuario", usuarioCorrespondente.get(0));
+
                         startActivity(intent);
                         dismiss();
                     }

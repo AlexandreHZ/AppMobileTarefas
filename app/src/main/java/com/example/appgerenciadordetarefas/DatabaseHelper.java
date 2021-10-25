@@ -87,7 +87,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    Cursor retornarTarefasByUsuario(Integer idUsuario) {
+    Cursor retornarTarefasByUsuario(String idUsuario) {
         String query = "select * from "+ TABLE_NAME_TAREFA+ " where id_usuario = "+ idUsuario;
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -105,7 +105,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long result = db.delete(TABLE_NAME_TAREFA, COLUMN_ID_TAREFA + "= ?", new String[]{idTarefa.toString()});
 
         if (result == -1) {
-            toastHelper.showToast("F", "Ops, algo de errado aconteceu!");
+            toastHelper.showToast("F", "Não foi possível excluir a tarefa!");
         } else {
             toastHelper.showToast("S", "Tarefa excluída com sucesso!");
         }

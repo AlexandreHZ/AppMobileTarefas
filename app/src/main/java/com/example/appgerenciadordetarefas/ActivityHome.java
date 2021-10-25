@@ -25,7 +25,7 @@ public class ActivityHome extends AppCompatActivity {
 
     private ImageButton btnSair;
 
-    private int idUsuario = 1;
+    private String idUsuario;
 
     DatabaseHelper db;
     ArrayList<String> idTarefa, tituloTarefa, prioridadeTarefa, dataTarefa;
@@ -33,6 +33,8 @@ public class ActivityHome extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        idUsuario = getIntent().getStringExtra("idUsuario");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
@@ -57,6 +59,7 @@ public class ActivityHome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ActivityHome.this, AddTarefaActivity.class);
+                intent.putExtra("idUsuario", idUsuario);
 
                 startActivity(intent);
             }
@@ -100,7 +103,4 @@ public class ActivityHome extends AppCompatActivity {
         }
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
 }

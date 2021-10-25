@@ -62,10 +62,10 @@ public class AddTarefaActivity extends AppCompatActivity {
                 String prioridade = editPrioridade.getText().toString();
                 String data = labelData.getText().toString();
                 String descricao = editDescricao.getText().toString();
-                Integer idUsuario = 1;
+                String idUsuario = getIntent().getStringExtra("idUsuario");
 
                 DatabaseHelper db = new DatabaseHelper(AddTarefaActivity.this);
-                db.addTarefa(titulo, prioridade, data, descricao, idUsuario);
+                db.addTarefa(titulo, prioridade, data, descricao, Integer.valueOf(idUsuario));
                 btnVoltarTarefa.callOnClick();
             }
         });
@@ -74,6 +74,7 @@ public class AddTarefaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AddTarefaActivity.this, ActivityHome.class);
+                intent.putExtra("idUsuario", getIntent().getStringExtra("idUsuario"));
                 startActivity(intent);
             }
         });
