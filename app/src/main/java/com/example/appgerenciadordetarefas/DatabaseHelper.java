@@ -16,13 +16,15 @@ import androidx.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private Context context;
+    private ToastHelper toastHelper;
     private static final String DATABASE_NAME = "ToDoList.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private static final String TABLE_NAME_USUARIO = "usuario";
     private static final String COLUMN_ID_USUARIO = "id";
     private static final String COLUMN_NOME_USUARIO = "usuario";
     private static final String COLUMN_EMAIL_USUARIO = "email";
+    private static final String COLUMN_SENHA_USUARIO = "senha";
 
     private static final String TABLE_NAME_TAREFA = "tarefa";
     private static final String COLUMN_ID_TAREFA = "id";
@@ -35,6 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
+        this.toastHelper = new ToastHelper(context);
     }
 
     @Override
@@ -42,7 +45,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String queryCriarTabelaUsuario = "create table " + TABLE_NAME_USUARIO
                 + "(" + COLUMN_ID_USUARIO + " integer primary key autoincrement, "
                 + COLUMN_NOME_USUARIO + " text,"
-                + COLUMN_EMAIL_USUARIO + " text);";
+                + COLUMN_EMAIL_USUARIO + " text,"
+                + COLUMN_SENHA_USUARIO + " text);";
 
         String queryCriarTabelaTarefas = "create table "+TABLE_NAME_TAREFA
                 + "(" + COLUMN_ID_TAREFA + " integer primary key autoincrement, "
@@ -63,6 +67,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    //Referentes à tarefas
+
     void addTarefa(String titulo, String prioridade, String data, String descricao, Integer idUsuario) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -75,9 +81,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         long result = db.insert(TABLE_NAME_TAREFA, null, contentValues);
         if (result == -1) {
-            showToast("F", "Ops, algo de errado aconteceu!");
+            toastHelper.showToast("F", "Ops, algo de errado aconteceu!");
         } else {
-            showToast("S", "Tarefa adicionada com sucesso!");
+            toastHelper.showToast("S", "Tarefa adicionada com sucesso!");
         }
     }
 
@@ -93,14 +99,77 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void showToast(String tipo, String mensagem) {
+    void deletarTarefaById(Integer idTarefa) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME_TAREFA, COLUMN_ID_TAREFA + "= ?", new String[]{idTarefa.toString()});
+
+        if (result == -1) {
+            toastHelper.showToast("F", "Ops, algo de errado aconteceu!");
+        } else {
+            toastHelper.showToast("S", "Tarefa excluída com sucesso!");
+        }
+    }
+
+    //Referentes à usuários
+    Cursor retornarLogin(String usuario, String senha) {
+        String query =
+                "select "+
+                    COLUMN_ID_USUARIO+
+                " from "+
+                    TABLE_NAME_USUARIO+
+                " where "+
+                    COLUMN_NOME_USUARIO+" = '"+usuario+
+                "' and "+ COLUMN_SENHA_USUARIO+" = '"+senha+"'";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+        if (db!= null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
+    Cursor retornarByUsuario(String usuario) {
+        String query =
+                "select "+
+                        COLUMN_ID_USUARIO+
+                        " from "+
+                        TABLE_NAME_USUARIO+
+                        " where "+
+                        COLUMN_NOME_USUARIO+" = '"+usuario+"'";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+        if (db!= null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
+    void addUsuario (String usuario, String email, String senha) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COLUMN_NOME_USUARIO, usuario);
+        contentValues.put(COLUMN_EMAIL_USUARIO, email);
+        contentValues.put(COLUMN_SENHA_USUARIO, senha);
+
+        long result = db.insert(TABLE_NAME_USUARIO, null, contentValues);
+        if (result == -1) {
+            toastHelper.showToast("F", "Ops, não foi efetuar o cadastro!");
+        } else {
+            toastHelper.showToast("S", "Cadastro realizado com sucesso!");
+        }
+    }
+
+    /*void showToast(String tipo, String mensagem) {
         if (tipo.equals("S")) {
             View view = LayoutInflater.from(context)
                     .inflate(R.layout.toast_sucesso, null);
             Toast toast = new Toast(context);
             TextView msgSucesso = view.findViewById(R.id.msgSucesso);
             msgSucesso.setText(mensagem);
-            toast.setDuration(Toast.LENGTH_LONG);
             toast.setGravity(Gravity.TOP, 0, 140);
             toast.setView(view);
             toast.show();
@@ -110,10 +179,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Toast toast = new Toast(context);
             TextView msgFalha = view.findViewById(R.id.msgFalha);
             msgFalha.setText(mensagem);
-            toast.setDuration(Toast.LENGTH_LONG);
             toast.setGravity(Gravity.TOP, 0, 140);
             toast.setView(view);
             toast.show();
         }
-    }
+    }*/
 }

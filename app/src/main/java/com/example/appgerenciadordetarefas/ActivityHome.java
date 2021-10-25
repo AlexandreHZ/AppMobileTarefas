@@ -92,15 +92,11 @@ public class ActivityHome extends AppCompatActivity {
 
     public void guardarDadosArrayValores() {
         Cursor cursor = db.retornarTarefasByUsuario(this.idUsuario);
-        if (cursor.getCount() == 0) {
-
-        } else {
-            while (cursor.moveToNext()) {
-                idTarefa.add(cursor.getString(0));
-                tituloTarefa.add(cursor.getString(1));
-                prioridadeTarefa.add(cursor.getString(2));
-                dataTarefa.add(cursor.getString(3));
-            }
+        while (cursor.moveToNext()) {
+            idTarefa.add(cursor.getString(0));
+            tituloTarefa.add(cursor.getString(1));
+            prioridadeTarefa.add(cursor.getString(2));
+            dataTarefa.add(cursor.getString(3));
         }
     }
 
