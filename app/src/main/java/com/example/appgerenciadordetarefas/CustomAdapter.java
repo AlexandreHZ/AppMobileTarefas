@@ -61,8 +61,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
                 recyclerView.removeViewAt(position);
                 CustomAdapter.this.notifyItemRemoved(position);
-                recyclerView.setAdapter(CustomAdapter.this);
-                recyclerView.invalidate();
+                CustomAdapter.this.notifyItemRangeChanged(position, idTarefa.size());
             }
         });
     }
